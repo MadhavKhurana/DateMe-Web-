@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const ProfileSchema = new Schema({
   user: {
-    type: String
+    type: Schema.Types.ObjectId,
+    ref: "users"
   },
   bio: {
     type: String

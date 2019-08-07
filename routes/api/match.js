@@ -23,6 +23,28 @@ router.post("/like/:id", isAuth, (req, res) => {
     .catch(err => res.status(404).json({ error: "Some Like Error" }));
 });
 
+router.get("/allLookingFor", (req, res) => {
+  let lookingfor;
+  Profile.findOne({ user: req.user._id })
+    .then(profile => {
+      Profile.findOne({ gender: profile.lookingfor })
+        .populate("user")
+        .then(profiles => {
+          const obj = {
+            profile: profiles,
+            user: profiles.user
+          };
+          res.json(obj);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 router.get("/", isAuth, (req, res) => {
   Profile.find({ gender: "Male" });
 });

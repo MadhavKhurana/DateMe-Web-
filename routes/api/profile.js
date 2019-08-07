@@ -90,7 +90,7 @@ router.post("/lookingfor", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  Profile.findOne({ user: req.user.id }).then(profile => {
+  Profile.findOne({ user: req.user._id }).then(profile => {
     res.json(profile);
   });
 });
