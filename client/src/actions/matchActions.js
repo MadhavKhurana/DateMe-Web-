@@ -14,6 +14,20 @@ export const getAlllookingFor = () => dispatch => {
     });
 };
 
+export const done = id => dispatch => {
+  axios
+    .post(`/api/match/done/${id}`)
+    .then(res => {
+      dispatch({
+        type: "GET_LOOKING_FOR",
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 // export const likeTheLove = id => dispatch => {
 //   axios.post(`api/match/like/${id}`).then()
 // };

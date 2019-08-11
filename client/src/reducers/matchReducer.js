@@ -1,5 +1,5 @@
 const states = {
-  users: {}
+  users: []
 };
 
 // function isEmpty(obj) {
