@@ -28,6 +28,34 @@ export const done = id => dispatch => {
     });
 };
 
+export const likeTheLove = id => dispatch => {
+  axios
+    .post(`/api/match/like/${id}`)
+    .then(res => {
+      dispatch({
+        type: "GET_LOOKING_FOR",
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
+export const matchFound = id => dispatch => {
+  axios
+    .post(`/api/match/MatchFound/${id}`)
+    .then(res => {
+      dispatch({
+        type: "GET_LOOKING_FOR",
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 // export const likeTheLove = id => dispatch => {
 //   axios.post(`api/match/like/${id}`).then()
 // };

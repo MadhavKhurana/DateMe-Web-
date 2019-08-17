@@ -22,15 +22,9 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  LikedBy: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
-      }
-    }
-  ],
-  done: []
+  LikedBy: [],
+  done: [],
+  Matches: []
 
   //   Matches=[]
 });
